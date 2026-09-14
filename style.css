@@ -1,62 +1,109 @@
-body.theme-2018 {
-    background-color: #222;
-    color: #eee;
-    font-family: Arial, sans-serif;
+body {
     margin: 0;
-    padding: 20px;
-}
-
-body.modern {
-    background-color: #f4f4f9;
-    color: #333;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 2px solid #444;
-    padding-bottom: 10px;
-}
-
-#stats span {
-    margin-left: 20px;
-    font-size: 1.1rem;
-}
-
-.hp-bar-container {
-    width: 100%;
-    background: #555;
-    height: 20px;
-    border-radius: 4px;
     overflow: hidden;
-    margin-bottom: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: url('https://images.unsplash.com/photo-1617469767053-d3b523a0b982?q=80&w=2000&auto=format&fit=crop') no-repeat center center fixed;
+    background-size: cover;
 }
 
-#dragon-hp {
-    height: 100%;
-    background: #e74c3c;
-    width: 100%;
-    transition: width 0.2s ease;
+#desktop {
+    height: calc(100vh - 50px);
+    position: relative;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
-button {
-    background: #3498db;
+.desktop-icon {
+    width: 70px;
+    text-align: center;
     color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 4px;
     cursor: pointer;
+    text-shadow: 1px 1px 3px black;
+}
+
+.desktop-icon span {
+    display: block;
+    font-size: 0.8rem;
     margin-top: 5px;
 }
 
-button:hover {
-    background: #2980b9;
+#taskbar {
+    height: 50px;
+    background: rgba(243, 243, 243, 0.85);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
 
-main {
-    margin-top: 20px;
-    display: grid;
-    gap: 20px;
+.taskbar-icon {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.taskbar-icon:hover {
+    background: #e0e0e0;
+}
+
+.window {
+    position: absolute;
+    top: 100px;
+    left: 150px;
+    width: 400px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.window.hidden {
+    display: none;
+}
+
+.window-header {
+    background: #f3f3f3;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    font-weight: bold;
+}
+
+.window-header button {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+textarea {
+    width: 100%;
+    height: 300px;
+    border: none;
+    padding: 10px;
+    resize: none;
+    box-sizing: border-box;
+}
+
+.calc-body {
+    padding: 20px;
+    text-align: center;
 }
