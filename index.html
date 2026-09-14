@@ -3,40 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Retro Dragon Simulator</title>
+    <title>Windows 11 Roleplay OS</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="theme-2018">
-    <div id="app">
-        <header>
-            <h1>Dragon Simulator</h1>
-            <div id="stats">
-                <span>Robux: <strong id="robux-display">500</strong></span>
-                <span>Coins: <strong id="coins-display">50</strong></span>
-            </div>
-        </header>
+<body>
+    <div id="desktop">
+        <!-- Desktop Icons -->
+        <div class="desktop-icon" onclick="openApp('notepad')">
+            📝<span>Notepad</span>
+        </div>
+        <div class="desktop-icon" onclick="openApp('calculator')">
+            🧮<span>Calculator</span>
+        </div>
 
-        <main>
-            <div class="combat-section">
-                <h2>Wild Dragon</h2>
-                <div class="hp-bar-container">
-                    <div id="dragon-hp" style="width: 100%;"></div>
-                </div>
-                <button onclick="attackDragon()">Attack Dragon</button>
+        <!-- App Windows (Hidden by default) -->
+        <div id="notepad" class="window hidden">
+            <div class="window-header">
+                <span>Notepad</span>
+                <button onclick="closeApp('notepad')">X</button>
             </div>
+            <textarea placeholder="Type your roleplay notes here..."></textarea>
+        </div>
 
-            <div class="shop-section">
-                <h2>Shop</h2>
-                <button onclick="buyItem('Dragon Slayer Sword', 50)">Buy Sword (50 Robux)</button>
-                <button onclick="buyItem('Dominus Empyreus', 100)">Buy Dominus (100 Robux)</button>
+        <div id="calculator" class="window hidden">
+            <div class="window-header">
+                <span>Calculator</span>
+                <button onclick="closeApp('calculator')">X</button>
             </div>
-
-            <div class="inventory-section">
-                <h2>Inventory</h2>
-                <ul id="inventory-list"></ul>
+            <div class="calc-body">
+                <input type="text" id="calc-display" disabled>
+                <button onclick="alert('Roleplay calc clicked!')">Calculate</button>
             </div>
-        </main>
+        </div>
     </div>
+
+    <!-- Taskbar -->
+    <div id="taskbar">
+        <div class="taskbar-icon start-button">⊞</div>
+        <div class="taskbar-icon" onclick="openApp('notepad')">📝</div>
+        <div class="taskbar-icon" onclick="openApp('calculator')">🧮</div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
