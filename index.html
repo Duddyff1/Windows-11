@@ -9,14 +9,14 @@
 <body>
     <div id="desktop">
         <!-- Desktop Icons -->
-        <div class="desktop-icon" onclick="openApp('notepad')">
-            📝<span>Notepad</span>
-        </div>
-        <div class="desktop-icon" onclick="openApp('calculator')">
-            🧮<span>Calculator</span>
-        </div>
+        <div class="desktop-icon" onclick="openApp('notepad')">📝<span>Notepad</span></div>
+        <div class="desktop-icon" onclick="openApp('calculator')">🧮<span>Calculator</span></div>
+        <div class="desktop-icon" onclick="openApp('dragon-sim')">🐉<span>Dragon Sim</span></div>
+        <div class="desktop-icon" onclick="openApp('airline-app')">✈️<span>Airline Idle</span></div>
+        <div class="desktop-icon" onclick="openApp('searode-app')">🚗<span>SeaRoade</span></div>
+        <div class="desktop-icon" onclick="openApp('apex-horizon')">🏎️<span>Apex Horizon</span></div>
 
-        <!-- App Windows (Hidden by default) -->
+        <!-- 1. NOTEPAD WINDOW -->
         <div id="notepad" class="window hidden">
             <div class="window-header">
                 <span>Notepad</span>
@@ -25,14 +25,93 @@
             <textarea placeholder="Type your roleplay notes here..."></textarea>
         </div>
 
+        <!-- 2. CALCULATOR WINDOW -->
         <div id="calculator" class="window hidden">
             <div class="window-header">
                 <span>Calculator</span>
                 <button onclick="closeApp('calculator')">X</button>
             </div>
             <div class="calc-body">
-                <input type="text" id="calc-display" disabled>
-                <button onclick="alert('Roleplay calc clicked!')">Calculate</button>
+                <input type="text" id="calc-display" readonly>
+                <div class="calc-buttons">
+                    <button onclick="appendCalc('7')">7</button><button onclick="appendCalc('8')">8</button><button onclick="appendCalc('9')">9</button><button onclick="appendCalc('+')">+</button>
+                    <button onclick="appendCalc('4')">4</button><button onclick="appendCalc('5')">5</button><button onclick="appendCalc('6')">6</button><button onclick="appendCalc('-')">-</button>
+                    <button onclick="appendCalc('1')">1</button><button onclick="appendCalc('2')">2</button><button onclick="appendCalc('3')">3</button><button onclick="appendCalc('*')">*</button>
+                    <button onclick="clearCalc()">C</button><button onclick="appendCalc('0')">0</button><button onclick="calculateResult()">=</button><button onclick="appendCalc('/')">/</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. RETRO DRAGON SIMULATOR WINDOW -->
+        <div id="dragon-sim" class="window hidden">
+            <div class="window-header">
+                <span>Retro Dragon Simulator</span>
+                <button onclick="closeApp('dragon-sim')">X</button>
+            </div>
+            <div class="app-content dragon-app">
+                <header class="dragon-header">
+                    <h3>Dragon Simulator</h3>
+                    <div id="stats">
+                        <span>Robux: <strong id="robux-display">500</strong></span>
+                        <span>Coins: <strong id="coins-display">50</strong></span>
+                    </div>
+                </header>
+                <main class="dragon-main">
+                    <div class="combat-section">
+                        <h4>Wild Dragon</h4>
+                        <div class="hp-bar-container">
+                            <div id="dragon-hp" style="width: 100%;"></div>
+                        </div>
+                        <button onclick="attackDragon()">Attack Dragon</button>
+                    </div>
+                    <div class="shop-section">
+                        <h4>Shop</h4>
+                        <button onclick="buyItem('Dragon Slayer Sword', 50)">Buy Sword (50 Robux)</button>
+                        <button onclick="buyItem('Dominus Empyreus', 100)">Buy Dominus (100 Robux)</button>
+                    </div>
+                    <div class="inventory-section">
+                        <h4>Inventory</h4>
+                        <ul id="inventory-list"></ul>
+                    </div>
+                </main>
+            </div>
+        </div>
+
+        <!-- 4. AIRLINE IDLE WINDOW -->
+        <div id="airline-app" class="window hidden">
+            <div class="window-header">
+                <span>Airline Idle Tycoon</span>
+                <button onclick="closeApp('airline-app')">X</button>
+            </div>
+            <div class="app-content generic-sim">
+                <h3>Airline Balance: $<span id="airline-cash">1000</span></h3>
+                <button onclick="upgradeAirline()">Buy Route (+ $100/sec)</button>
+            </div>
+        </div>
+
+        <!-- 5. SEAROADE WINDOW -->
+        <div id="searode-app" class="window hidden">
+            <div class="window-header">
+                <span>SeaRoade Simulator</span>
+                <button onclick="closeApp('searode-app')">X</button>
+            </div>
+            <div class="app-content generic-sim">
+                <h3>SeaRoade Vehicle Voyage</h3>
+                <p>Status: Cruising Open Waters & Highways</p>
+                <button onclick="alert('SeaRoade engine revved!')">Boost Engine</button>
+            </div>
+        </div>
+
+        <!-- 6. APEX HORIZON WINDOW -->
+        <div id="apex-horizon" class="window hidden">
+            <div class="window-header">
+                <span>Apex Horizon Racer</span>
+                <button onclick="closeApp('apex-horizon')">X</button>
+            </div>
+            <div class="app-content generic-sim">
+                <h3>Apex Horizon Garage</h3>
+                <p>Current Tier 1 Idle Racer Active</p>
+                <button onclick="alert('Merged vehicles for bonus cash!')">Merge Cars</button>
             </div>
         </div>
     </div>
@@ -42,6 +121,10 @@
         <div class="taskbar-icon start-button">⊞</div>
         <div class="taskbar-icon" onclick="openApp('notepad')">📝</div>
         <div class="taskbar-icon" onclick="openApp('calculator')">🧮</div>
+        <div class="taskbar-icon" onclick="openApp('dragon-sim')">🐉</div>
+        <div class="taskbar-icon" onclick="openApp('airline-app')">✈️</div>
+        <div class="taskbar-icon" onclick="openApp('searode-app')">🚗</div>
+        <div class="taskbar-icon" onclick="openApp('apex-horizon')">🏎️</div>
     </div>
 
     <script src="script.js"></script>
