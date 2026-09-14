@@ -9,23 +9,24 @@ body {
 #desktop {
     height: calc(100vh - 50px);
     position: relative;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+    padding: 15px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 80px);
+    gap: 20px;
 }
 
 .desktop-icon {
-    width: 70px;
+    width: 75px;
     text-align: center;
     color: white;
     cursor: pointer;
     text-shadow: 1px 1px 3px black;
+    font-size: 1.8rem;
 }
 
 .desktop-icon span {
     display: block;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     margin-top: 5px;
 }
 
@@ -36,22 +37,23 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 15px;
+    gap: 10px;
     position: absolute;
     bottom: 0;
     width: 100%;
 }
 
 .taskbar-icon {
-    width: 35px;
-    height: 35px;
+    width: 38px;
+    height: 38px;
     display: flex;
     justify-content: center;
     align-items: center;
     background: white;
-    border-radius: 4px;
+    border-radius: 6px;
     cursor: pointer;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    font-size: 1.2rem;
 }
 
 .taskbar-icon:hover {
@@ -60,15 +62,17 @@ body {
 
 .window {
     position: absolute;
-    top: 100px;
-    left: 150px;
-    width: 400px;
+    top: 60px;
+    left: 100px;
+    width: 440px;
+    height: 420px;
     background: white;
     border-radius: 8px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    z-index: 10;
 }
 
 .window.hidden {
@@ -77,26 +81,27 @@ body {
 
 .window-header {
     background: #f3f3f3;
-    padding: 10px;
+    padding: 8px 12px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid #ccc;
     font-weight: bold;
+    font-size: 0.9rem;
 }
 
 .window-header button {
     background: #e74c3c;
     color: white;
     border: none;
-    padding: 5px 10px;
+    padding: 2px 8px;
     cursor: pointer;
     border-radius: 4px;
 }
 
 textarea {
     width: 100%;
-    height: 300px;
+    height: calc(100% - 35px);
     border: none;
     padding: 10px;
     resize: none;
@@ -104,6 +109,73 @@ textarea {
 }
 
 .calc-body {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#calc-display {
+    width: 100%;
+    height: 40px;
+    font-size: 1.5rem;
+    text-align: right;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.calc-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+}
+
+.calc-buttons button {
+    padding: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.dragon-app {
+    padding: 12px;
+    background: #222;
+    color: #eee;
+    height: calc(100% - 35px);
+    overflow-y: auto;
+}
+
+.dragon-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #444;
+    padding-bottom: 6px;
+}
+
+.dragon-main {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.hp-bar-container {
+    width: 100%;
+    background: #555;
+    height: 14px;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 6px;
+}
+
+#dragon-hp {
+    height: 100%;
+    background: #e74c3c;
+    width: 100%;
+    transition: width 0.2s ease;
+}
+
+.generic-sim {
     padding: 20px;
     text-align: center;
 }
